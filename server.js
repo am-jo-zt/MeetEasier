@@ -1,5 +1,10 @@
 // server.js
 
+// Print proper stacktrace on unhandled promise rejection
+process.on('unhandledRejection', err => {
+  console.log(err);
+});
+
 // set up ======================================================================
 var express = require('express');
 var app = express();

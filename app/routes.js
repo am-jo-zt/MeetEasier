@@ -1,13 +1,13 @@
-module.exports = function(app) {
-	var path = require('path');
+const path = require('path'),
+  exchangeWebService = require("ews-javascript-api"),
+  auth = require('../config/auth'),
+  fetchListOfRooms = require('../config/ews/rooms').default;
 
+module.exports = function(app) {
 	// api routes ================================================================
 	// returns an array of room objects
 	app.get('/api/rooms', function(req, res) {
-
-		var ews = require('../config/ews/rooms.js');
-
-		ews(function(err, rooms) {
+    fetchListOfRooms({ exchangeWebService, auth }, function(err, rooms) {
 			res.json(rooms);
 		});
 	});

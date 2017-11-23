@@ -59,6 +59,7 @@ class Flightboard extends Component {
             let nextUp = '';
             let timesPresent = false;
             let skippedRoom = false;
+            // TODO Use `RoomAlias`
             const room = item.Name.toLowerCase().replace(/\s+/g, "-");
             const roomlist = 'roomlist-' + item.Roomlist.toLowerCase().replace(/\s+/g, "-");
 
